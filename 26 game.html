@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="26 game.css">
+    <title>Penalty Kick</title>
+</head>
+<body>
+    <div class="container">
+        <div class="score">
+         <span id="player1scores">0</span><span>-</span><span id="player2scores">0</span>
+        </div> 
+
+        <div id="game">  
+            <div id="userChoice" class="choice">
+                <p>You</p>
+                <div id="userImage"></div>
+                <div id="userSide"></div>
+                <div id="options">
+                    <button onclick="userChoice('left')"><img src='https://cdn-icons-gif.flaticon.com/7740/7740551.gif' height="100px" width="100px"></button>
+                    <button onclick="userChoice('right')"><img src='https://cdn-icons-gif.flaticon.com/7740/7740559.gif' height="100px" width="100px"></button>
+                    <button onclick="userChoice('middle')"><img src='https://cdn-icons-gif.flaticon.com/7740/7740483.gif' height="100px" width="100px"> </button>
+                </div>
+            </div>   
+            <div id="versus">V/S</div>
+
+             <div id="computerChoice" class="choice">
+                <p>Comp</p>
+                <div id="computerImage"></div>
+                <div id="computerSide"></div>
+            </div>    
+        </div>
+        <div id="result"></div> 
+    </div>
+    <div class="instruction">
+        <ul><b>Instructions</b></ul>
+        <ul><li>Click on  <img src='https://cdn-icons-gif.flaticon.com/7740/7740551.gif' height="20px" width="20px"> to shoot the ball on left side of post</li></ul>
+        <ul><li>Click on  <img src='https://cdn-icons-gif.flaticon.com/7740/7740483.gif' height="20px" width="20px"> to shoot the ball on Middle side of post</li></ul>
+        <ul><li>Click on  <img src='https://cdn-icons-gif.flaticon.com/7740/7740559.gif' height="20px" width="20px"> to shoot the ball on right side of post</li></ul>
+    </div>
+   
+    <div id="gameOverPopup" class="popup">
+        <div class="popup-content">
+            <h2><img src="data:image/jpeg;base64,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"></h2>
+            <h2 id="winner">Won!!!!</h2>
+            <span id="player1final">0</span><span>-</span><span id="player2final">0</span>
+            <div><button id="restart">Play Again⚽</button></div>  
+        </div>
+    </div>
+ 
+    <script src="26 game.js"></script>
+</body>
+</html>
